@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <section id="app-menu">
+    <section id="app-menu" class="none">
       <div class="wrapper">
         <header>
           <h1>DogeGoBonk</h1>
@@ -30,13 +30,27 @@
       </div>
     </section>
 
-    <!-- <div class="doge-pointer" draggable="false">
+    <section id="bonk-playground">
+      <div class="overlay"></div>
+      <img src="https://c4.wallpaperflare.com/wallpaper/843/347/678/fate-series-fate-stay-night-anime-girls-saber-wallpaper-preview.jpg" class="bonk-on-image" />
+      <video src="" class="bonk-on-video"></video>
+
+      <div class="wrapper">
+        <div class="_counter">1 bonk</div>
+
+        <a href="javascript:void(0)" class="btn-exit">
+          <img src="./assets/close.svg" />
+        </a>
+      </div>
+    </section>
+
+    <div class="doge-pointer">
       <div class="_character" draggable="false"></div>
       <div class="_weapon" draggable="false"></div>
       <div class="_bonk" draggable="false"></div>
     </div>
 
     <audio src="./assets/bonk.wav" class="bonk-audio"></audio>
-    <script src="./src/app.js"></script> -->
+    <script src="./src/app.js"></script>
   </body>
 </html>
