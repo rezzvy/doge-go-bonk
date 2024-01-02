@@ -1,71 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DogeGoBonk - Go bonk your favorite image or video.</title>
 
+    <meta name="description" content="Web-based app to bonk your favorite image or video until you feel tired." />
+    <meta name="keywords" content="doge, dog, bonk,  Shiba Inu, dog, shiba, inu" />
+    <meta name="author" content="Muhammad Reza Fahlevi (Rezzvy)" />
+    <meta name="google" content="notranslate" />
+
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link type="image/x-icon" href="./favicon.ico" />
   </head>
   <body>
-    <section id="app-menu" class="">
-      <div class="wrapper">
-        <header>
-          <h1>DogeGoBonk</h1>
-        </header>
-        <main>
-          <div class="wrap">
-            <h2>Target to bonk?</h2>
-            <input type="file" accept="image/*, video/*" id="bonk-file-input" />
-          </div>
-
-          <div class="wrap">
-            <h2>Setting</h2>
-
-            <h3>Output</h3>
+    <div class="app-container">
+      <section id="app-menu">
+        <div class="wrapper">
+          <header>
+            <h1>DogeGoBonk</h1>
+          </header>
+          <main>
             <div class="wrap">
-              <input type="radio" id="output-size-cover" data-type="cover" name="output-size" />
-              <label for="output-size-cover">Cover Size</label>
+              <h2>Target to bonk?</h2>
+              <input type="file" accept="image/*, video/*" id="bonk-file-input" />
             </div>
 
             <div class="wrap">
-              <input type="radio" id="output-size-contain" data-type="contain" name="output-size" checked />
-              <label for="output-size-contain">Contain Size</label>
+              <h2>Setting</h2>
+
+              <h3>Output</h3>
+              <div class="wrap">
+                <input type="radio" id="output-size-cover" data-type="cover" name="output-size" />
+                <label for="output-size-cover">Cover Size</label>
+              </div>
+
+              <div class="wrap">
+                <input type="radio" id="output-size-contain" data-type="contain" name="output-size" checked />
+                <label for="output-size-contain">Contain Size</label>
+              </div>
             </div>
-          </div>
 
-          <div class="wrap">
-            <a href="javascript:void(0)" class="btn btn-purple" id="start-bonk-btn">Start Bonk</a>
-            <div class="text center spacing-top">This project is just for fun and is not intended to spread hate towards anyone. Have fun!</div>
-          </div>
-        </main>
-        <footer>
-          <div class="text"><a href="#">DogeGoBonk</a> - Made with lots of ❤️ by <a href="#">Muhd. Reza Fahlevi</a></div>
-        </footer>
+            <div class="wrap">
+              <a href="javascript:void(0)" class="btn btn-purple" id="start-bonk-btn">Start Bonk</a>
+              <div class="text center spacing-top">This project is just for fun and is not intended to spread hate towards anyone. Have fun!</div>
+            </div>
+          </main>
+          <footer>
+            <div class="text"><a href="https://github.com/rezzvy/doge-go-bonk">DogeGoBonk</a> - Made with lots of ❤️ by <a href="https://github.com/rezzvy">Muhd. Reza Fahlevi</a></div>
+          </footer>
+        </div>
+      </section>
+
+      <section id="bonk-playground" class="none">
+        <div class="overlay"></div>
+        <img src="" class="bonk-on-image output contain" />
+        <video src="" class="bonk-on-video output contain" loop></video>
+
+        <div class="wrapper">
+          <div class="_counter">1 bonk</div>
+
+          <a href="javascript:void(0)" class="btn-exit" id="stop-btn">
+            <img src="./assets/close.svg" />
+          </a>
+        </div>
+      </section>
+
+      <div class="doge-pointer">
+        <div class="_character" draggable="false"></div>
+        <div class="_weapon" draggable="false"></div>
+        <div class="_bonk" draggable="false"></div>
+        <div class="_crosshair" draggable="false"></div>
       </div>
-    </section>
-
-    <section id="bonk-playground" class="none">
-      <div class="overlay"></div>
-      <img src="" class="bonk-on-image output contain" />
-      <video src="" class="bonk-on-video output contain" loop></video>
-
-      <div class="wrapper">
-        <div class="_counter">1 bonk</div>
-
-        <a href="javascript:void(0)" class="btn-exit" id="stop-btn">
-          <img src="./assets/close.svg" />
-        </a>
-      </div>
-    </section>
-
-    <div class="doge-pointer none">
-      <div class="_character" draggable="false"></div>
-      <div class="_weapon" draggable="false"></div>
-      <div class="_bonk" draggable="false"></div>
-      <div class="_crosshair" draggable="false"></div>
     </div>
-
     <audio src="./assets/bonk.wav" class="bonk-audio"></audio>
     <script src="./src/app.js" type="module"></script>
   </body>

@@ -14,6 +14,8 @@ class View {
 
     this.radioCoverSize = document.getElementById("output-size-cover");
     this.radioContainSize = document.getElementById("output-size-contain");
+
+    this.appContainer = document.querySelector(".app-container");
   }
 
   render(element, boolean) {
@@ -37,7 +39,7 @@ class View {
       bonkedElement.style.top = crosshairCordinate.y + "px";
       bonkedElement.style.left = crosshairCordinate.x + "px";
 
-      document.body.appendChild(bonkedElement);
+      this.appContainer.appendChild(bonkedElement);
 
       this.runAfter(1000, () => {
         bonkedElement.remove();
@@ -73,8 +75,8 @@ class View {
   }
 
   setPointer(x, y) {
-    this.pointerElement.style.top = y - this.pointerElement.clientHeight / 2 + "px";
-    this.pointerElement.style.left = x - this.pointerElement.clientWidth / 2 + "px";
+    this.pointerElement.style.top = y + -this.pointerElement.clientHeight / 1.2 + "px";
+    this.pointerElement.style.left = x - this.pointerElement.clientWidth * 2 + "px";
   }
 
   isFileSelected() {

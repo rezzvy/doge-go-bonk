@@ -19,6 +19,14 @@ class Controller {
       this.inputFileHandler(e);
     });
 
+    this.view.stopButton.addEventListener("mouseover", (e) => {
+      this.view.pointerElement.classList.add("none");
+    });
+
+    this.view.stopButton.addEventListener("mouseout", (e) => {
+      this.view.pointerElement.classList.remove("none");
+    });
+
     document.querySelectorAll('[name="output-size"]').forEach((radio) => {
       radio.addEventListener("click", (e) => {
         this.outputSizeHandler(e);
@@ -29,16 +37,13 @@ class Controller {
       window.addEventListener("click", (e) => {
         this.appClickHandler(e);
       });
-      window.addEventListener("mousemove", (e) => {
-        this.appMoveHandler(e);
+    } else {
+      window.addEventListener("touchstart", (e) => {
+        this.appClickHandler(e);
       });
-      return;
     }
 
-    window.addEventListener("touchstart", (e) => {
-      this.appClickHandler(e);
-    });
-    window.addEventListener("touchmove", (e) => {
+    window.addEventListener("mousemove", (e) => {
       this.appMoveHandler(e);
     });
   }
