@@ -88,7 +88,7 @@ a {
   background-image: url(../assets/bonk.png);
   left: calc(var(--pointer-size) * 2 - 40%);
   top: calc(var(--pointer-size) / 2);
-  z-index: 1;
+  z-index: 2;
 }
 
 .doge-pointer.bonk ._crosshair {
@@ -219,4 +219,15 @@ a {
 
 #stop-btn {
   pointer-events: initial;
+}
+
+.bonked {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+
+  z-index: 1;
+  background-image: url("../assets/crack.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }

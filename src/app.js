@@ -39,14 +39,30 @@ window.addEventListener("mousemove", (e) => {
   pointer.style.left = e.clientX - pointerSizeW + "px";
 });
 
+let crosshairElement = document.querySelector("._crosshair");
+
 window.addEventListener("click", (e) => {
   if (!isStarted) return;
   pointer.classList.add("bonk");
+
+  const bonkedElement = document.createElement("div");
+  bonkedElement.classList.add("bonked");
+
+  const cordinate = crosshairElement.getBoundingClientRect();
+
+  bonkedElement.style.top = cordinate.y + "px";
+  bonkedElement.style.left = cordinate.x + "px";
+
+  document.body.appendChild(bonkedElement);
 
   setTimeout(() => {
     bonk_audio_play();
     bonkCounterElement.textContent = bonkCounter++ + " bonk";
     pointer.classList.remove("bonk");
+
+    setTimeout(() => {
+      bonkedElement.remove();
+    }, 1000);
   }, 100);
 });
 
