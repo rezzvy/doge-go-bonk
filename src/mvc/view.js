@@ -16,6 +16,8 @@ class View {
     this.radioContainSize = document.getElementById("output-size-contain");
 
     this.appContainer = document.querySelector(".app-container");
+
+    this.bonkAudioElement.volume = 0.5;
   }
 
   render(element, boolean) {
