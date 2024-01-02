@@ -9,6 +9,12 @@ const bonkOnVideo = document.querySelector(".bonk-on-video");
 const bonkPlayGround = document.getElementById("bonk-playground");
 const appMenu = document.getElementById("app-menu");
 
+const startBtn = document.getElementById("start-bonk-btn");
+
+let type = "";
+
+let isStarted = false;
+
 function bonk_audio_play() {
   if (bonkAudio.currentTime > 0) {
     bonkAudio.pause();
@@ -27,6 +33,7 @@ window.addEventListener("mousemove", (e) => {
 });
 
 window.addEventListener("click", (e) => {
+  if (!isStarted) return;
   pointer.classList.add("bonk");
 
   setTimeout(() => {
@@ -41,11 +48,23 @@ bonkFileInput.addEventListener("input", (e) => {
 
   if (fileType === "image") {
     bonkOnImage.src = URL.createObjectURL(file);
+    type = "image";
   } else {
     bonkOnVideo.src = URL.createObjectURL(file);
+    type = "video";
+  }
+});
+
+startBtn.addEventListener("click", (e) => {
+  pointer.classList.remove("none");
+  appMenu.classList.add("none");
+  bonkPlayGround.classList.remove("none");
+
+  if (type !== "image") {
     bonkOnVideo.play();
   }
 
-  appMenu.classList.add("none");
-  bonkPlayGround.classList.remove("none");
+  setTimeout(() => {
+    isStarted = true;
+  }, 50);
 });
