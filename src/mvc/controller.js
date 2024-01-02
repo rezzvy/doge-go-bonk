@@ -37,14 +37,17 @@ class Controller {
       window.addEventListener("click", (e) => {
         this.appClickHandler(e);
       });
-    } else {
-      window.addEventListener("touchstart", (e) => {
-        this.appClickHandler(e);
+
+      window.addEventListener("mousemove", (e) => {
+        this.appMoveHandler(e);
       });
+
+      return;
     }
 
-    window.addEventListener("mousemove", (e) => {
-      this.appMoveHandler(e);
+    window.addEventListener("touchstart", (e) => {
+      this.view.setPointer(e.touches[0].clientX, e.touches[0].clientY);
+      this.appClickHandler(e);
     });
   }
 

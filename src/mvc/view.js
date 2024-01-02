@@ -38,8 +38,8 @@ class View {
       bonkedElement.classList.add("bonked");
 
       const crosshairCordinate = this.getElementCordinate(this.crosshairElement);
-      bonkedElement.style.top = crosshairCordinate.y + "px";
-      bonkedElement.style.left = crosshairCordinate.x + "px";
+      bonkedElement.style.top = crosshairCordinate.y - crosshairCordinate.height / 2 + "px";
+      bonkedElement.style.left = crosshairCordinate.x - crosshairCordinate.width / 2 + "px";
 
       this.appContainer.appendChild(bonkedElement);
 
