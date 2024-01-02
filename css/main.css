@@ -113,8 +113,8 @@ a {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center;
-  background-image: url("https://wallpapercave.com/wp/wp1812382.jpg");
+  background-position: top;
+  background-image: url("../assets/wp.jpg");
   padding-top: calc(100vh / 4);
   cursor: initial !important;
   position: relative;
