@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <section id="app-menu" class="none">
+    <section id="app-menu" class="">
       <div class="wrapper">
         <header>
           <h1>DogeGoBonk</h1>
@@ -16,7 +16,7 @@
         <main>
           <div class="wrap">
             <h2>Target to bonk?</h2>
-            <input type="file" accept="image/*, video/*" />
+            <input type="file" accept="image/*, video/*" id="bonk-file-input" />
           </div>
 
           <div class="wrap">
@@ -30,10 +30,10 @@
       </div>
     </section>
 
-    <section id="bonk-playground">
+    <section id="bonk-playground" class="none">
       <div class="overlay"></div>
-      <img src="https://c4.wallpaperflare.com/wallpaper/843/347/678/fate-series-fate-stay-night-anime-girls-saber-wallpaper-preview.jpg" class="bonk-on-image" />
-      <video src="" class="bonk-on-video"></video>
+      <img src="" class="bonk-on-image" />
+      <video src="" class="bonk-on-video" loop></video>
 
       <div class="wrapper">
         <div class="_counter">1 bonk</div>
@@ -44,7 +44,7 @@
       </div>
     </section>
 
-    <div class="doge-pointer">
+    <div class="doge-pointer none">
       <div class="_character" draggable="false"></div>
       <div class="_weapon" draggable="false"></div>
       <div class="_bonk" draggable="false"></div>
