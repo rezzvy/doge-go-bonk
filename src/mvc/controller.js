@@ -77,7 +77,7 @@ class Controller {
   }
 
   startHandler(e) {
-    if (!this.view.isFileSelected()) return;
+    if (!this.view.isFileSelected()) return alert("Please select an image or video first.");
 
     this.view.render("pointer", true);
     this.view.render("menu", false);
