@@ -200,3 +200,7 @@ a {
 .none {
   display: none;
 }
+
+#stop-btn {
+  pointer-events: initial;
+}

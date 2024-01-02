@@ -10,6 +10,7 @@ const bonkPlayGround = document.getElementById("bonk-playground");
 const appMenu = document.getElementById("app-menu");
 
 const startBtn = document.getElementById("start-bonk-btn");
+const stopBtn = document.getElementById("stop-btn");
 
 let type = "";
 
@@ -56,6 +57,8 @@ bonkFileInput.addEventListener("input", (e) => {
 });
 
 startBtn.addEventListener("click", (e) => {
+  if (bonkFileInput.files.length === 0) return console.log("Select an image or video first pal!");
+
   pointer.classList.remove("none");
   appMenu.classList.add("none");
   bonkPlayGround.classList.remove("none");
@@ -67,4 +70,31 @@ startBtn.addEventListener("click", (e) => {
   setTimeout(() => {
     isStarted = true;
   }, 50);
+});
+
+stopBtn.addEventListener("click", (e) => {
+  isStarted = false;
+  type = "";
+
+  pointer.classList.add("none");
+  appMenu.classList.remove("none");
+  bonkPlayGround.classList.add("none");
+
+  document.querySelectorAll(".output").forEach((el) => {
+    if (el.src !== "") {
+      URL.revokeObjectURL(el.src);
+    }
+
+    el.src = "";
+  });
+
+  bonkFileInput.value = "";
+});
+
+stopBtn.addEventListener("mouseover", (e) => {
+  pointer.classList.add("none");
+});
+
+stopBtn.addEventListener("mouseout", (e) => {
+  pointer.classList.remove("none");
 });
