@@ -19,6 +19,12 @@ class Controller {
       this.inputFileHandler(e);
     });
 
+    document.querySelectorAll('[name="output-size"]').forEach((radio) => {
+      radio.addEventListener("click", (e) => {
+        this.outputSizeHandler(e);
+      });
+    });
+
     if (!isTouchDevice()) {
       window.addEventListener("click", (e) => {
         this.appClickHandler(e);
@@ -35,6 +41,16 @@ class Controller {
     window.addEventListener("touchmove", (e) => {
       this.appMoveHandler(e);
     });
+  }
+
+  outputSizeHandler(e) {
+    const type = e.currentTarget.dataset.type;
+
+    if (type === "cover") {
+      return this.view.setOutputSize("cover");
+    }
+
+    this.view.setOutputSize("contain");
   }
 
   appClickHandler(e) {

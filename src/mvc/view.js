@@ -11,6 +11,9 @@ class View {
     this.bonkAudioElement = document.querySelector(".bonk-audio");
     this.pointerElement = document.querySelector(".doge-pointer");
     this.crosshairElement = document.querySelector("._crosshair");
+
+    this.radioCoverSize = document.getElementById("output-size-cover");
+    this.radioContainSize = document.getElementById("output-size-contain");
   }
 
   render(element, boolean) {
@@ -86,6 +89,20 @@ class View {
 
       el.src = "";
     });
+  }
+
+  setOutputSize(val) {
+    this.bonkOnImageOutputElement.classList.remove("contain", "cover");
+    this.bonkOnVideoOutputElement.classList.remove("contain", "cover");
+
+    if (val === "contain") {
+      this.bonkOnImageOutputElement.classList.add("contain");
+      this.bonkOnVideoOutputElement.classList.add("contain");
+      return;
+    }
+
+    this.bonkOnImageOutputElement.classList.add("cover");
+    this.bonkOnVideoOutputElement.classList.add("cover");
   }
 }
 
