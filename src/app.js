@@ -26,6 +26,8 @@ function bonk_audio_play() {
 }
 
 window.addEventListener("mousemove", (e) => {
+  if (!isStarted) return;
+
   const pointerSizeW = pointer.clientWidth / 2;
   const pointerSizeH = pointer.clientHeight / 2;
 
@@ -76,10 +78,6 @@ stopBtn.addEventListener("click", (e) => {
   isStarted = false;
   type = "";
 
-  pointer.classList.add("none");
-  appMenu.classList.remove("none");
-  bonkPlayGround.classList.add("none");
-
   document.querySelectorAll(".output").forEach((el) => {
     if (el.src !== "") {
       URL.revokeObjectURL(el.src);
@@ -89,6 +87,10 @@ stopBtn.addEventListener("click", (e) => {
   });
 
   bonkFileInput.value = "";
+
+  appMenu.classList.remove("none");
+  bonkPlayGround.classList.add("none");
+  pointer.classList.add("none");
 });
 
 stopBtn.addEventListener("mouseover", (e) => {
