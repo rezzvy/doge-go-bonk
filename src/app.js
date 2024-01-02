@@ -12,6 +12,10 @@ const appMenu = document.getElementById("app-menu");
 const startBtn = document.getElementById("start-bonk-btn");
 const stopBtn = document.getElementById("stop-btn");
 
+let bonkCounter = 1;
+
+const bonkCounterElement = document.querySelector("._counter");
+
 let type = "";
 
 let isStarted = false;
@@ -41,6 +45,7 @@ window.addEventListener("click", (e) => {
 
   setTimeout(() => {
     bonk_audio_play();
+    bonkCounterElement.textContent = bonkCounter++ + " bonk";
     pointer.classList.remove("bonk");
   }, 100);
 });
@@ -91,6 +96,9 @@ stopBtn.addEventListener("click", (e) => {
   appMenu.classList.remove("none");
   bonkPlayGround.classList.add("none");
   pointer.classList.add("none");
+
+  bonkCounter = 1;
+  bonkCounterElement.textContent = "1 bonk";
 });
 
 stopBtn.addEventListener("mouseover", (e) => {
